@@ -1,0 +1,17 @@
+*
+
+# Whitelist...
+!**/
+!*.ts
+!*.tsx
+!*.js
+!*.json
+!*.yaml
+!*.css
+!*.html
+
+# Explicitly ignore...
+**/dist/
+**/node_modules/
+**/pkg/
+**/target/
