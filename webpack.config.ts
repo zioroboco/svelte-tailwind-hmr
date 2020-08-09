@@ -1,4 +1,5 @@
 import { Configuration, HotModuleReplacementPlugin } from "webpack"
+import { resolve } from "path"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 
 const config: Configuration = {
@@ -6,7 +7,11 @@ const config: Configuration = {
   entry: "./src/main",
   devtool: "source-map",
   resolve: {
-    extensions: [".ts", ".js", ".json"],
+    alias: {
+      svelte: resolve("node_modules", "svelte"),
+    },
+    extensions: [".ts", ".mjs", ".js", ".json", ".svelte"],
+    mainFields: ["svelte", "browser", "module", "main"],
   },
   module: {
     rules: [
@@ -17,6 +22,15 @@ const config: Configuration = {
           options: {
             configFile: "tsconfig.json",
             transpileOnly: true,
+          },
+        },
+      },
+      {
+        test: /\.svelte$/,
+        use: {
+          loader: "svelte-loader",
+          options: {
+            preprocess: require("svelte-preprocess")({}),
           },
         },
       },
