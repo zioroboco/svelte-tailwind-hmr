@@ -10,10 +10,7 @@
     "lint": "yarn -s tsc:src && yarn -s tsc:node && eslint . --ext .ts && prettier --check '**/*'",
     "lint:fix": "yarn -s tsc:src && yarn -s tsc:node && eslint . --ext .ts --fix && prettier --write '**/*'"
   },
-  "dependencies": {
-    "@types/ramda": "*",
-    "ramda": "^0.27.1"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@tsconfig/svelte": "^1.0.8",
     "@types/html-webpack-plugin": "*",
