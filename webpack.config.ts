@@ -28,10 +28,15 @@ const config: Configuration = {
       {
         test: /\.svelte$/,
         use: {
-          loader: "svelte-loader",
+          loader: "svelte-loader-hot",
           options: {
-            hotReload: true,
             preprocess: require("svelte-preprocess")({ postcss: true }),
+            dev: true,
+            hotReload: true,
+            hotOptions: {
+              noPreserveState: false,
+              optimistic: true,
+            },
           },
         },
       },

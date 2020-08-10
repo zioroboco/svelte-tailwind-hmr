@@ -1,5 +1,5 @@
 <script lang="ts">
-  export let message: string
+  import Component from "./Component.svelte"
 </script>
 
 <style global>
@@ -8,4 +8,4 @@
   @tailwind utilities;
 </style>
 
-<h1>{message}!</h1>
+<Component message="ding" />
