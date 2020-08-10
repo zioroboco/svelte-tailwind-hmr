@@ -30,7 +30,8 @@ const config: Configuration = {
         use: {
           loader: "svelte-loader",
           options: {
-            preprocess: require("svelte-preprocess")({}),
+            hotReload: true,
+            preprocess: require("svelte-preprocess")({ postcss: true }),
           },
         },
       },

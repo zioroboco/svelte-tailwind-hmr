@@ -2,10 +2,10 @@
   export let message: string
 </script>
 
-<style>
-  h1 {
-    color: red;
-  }
+<style global>
+  @tailwind base;
+  @tailwind components;
+  @tailwind utilities;
 </style>
 
 <h1>{message}!</h1>
