@@ -1,6 +1,6 @@
 <div align="center">
   <h1>
-    <p>eevee</p>
+    <p>svelte-tailwind-hmr</p>
   </h1>
 </div>
 <br />
