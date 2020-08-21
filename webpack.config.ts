@@ -32,10 +32,6 @@ const config: Configuration = {
             preprocess: require("svelte-preprocess")({ postcss: true }),
             dev: true,
             hotReload: true,
-            hotOptions: {
-              noPreserveState: false,
-              optimistic: true,
-            },
           },
         },
       },
