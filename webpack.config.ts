@@ -4,14 +4,13 @@ import HtmlWebpackPlugin from "html-webpack-plugin"
 
 const config: Configuration = {
   mode: "development",
-  entry: "./src/main",
+  entry: ["./src/global.css", "./src/main"],
   devtool: "source-map",
   resolve: {
     alias: {
       svelte: resolve("node_modules", "svelte"),
     },
     extensions: [".ts", ".mjs", ".js", ".json", ".svelte"],
-    mainFields: ["svelte", "browser", "module", "main"],
   },
   module: {
     rules: [
@@ -39,6 +38,23 @@ const config: Configuration = {
             },
           },
         },
+      },
+      {
+        test: /\.css$/,
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1,
+              sourceMap: true,
+              modules: {
+                localIdentName: "[name]__[local]--[hash:base64:5]",
+              },
+            },
+          },
+          "postcss-loader",
+        ],
       },
     ],
   },
