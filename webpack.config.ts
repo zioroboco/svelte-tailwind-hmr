@@ -2,6 +2,8 @@ import { Configuration, HotModuleReplacementPlugin } from "webpack"
 import { resolve } from "path"
 import HtmlWebpackPlugin from "html-webpack-plugin"
 
+process.env.NODE_ENV = "development"
+
 const config: Configuration = {
   mode: "development",
   entry: ["./src/global.css", "./src/main"],
@@ -27,11 +29,15 @@ const config: Configuration = {
       {
         test: /\.svelte$/,
         use: {
-          loader: "svelte-loader-hot",
+          loader: "svelte-loader",
           options: {
             preprocess: require("svelte-preprocess")({ postcss: true }),
             dev: true,
             hotReload: true,
+            hotOptions: {
+              noPreserveState: false,
+              optimistic: true,
+            },
           },
         },
       },
