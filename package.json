@@ -10,7 +10,9 @@
     "lint": "yarn -s tsc:src && yarn -s tsc:node && eslint . --ext .ts && prettier --check '**/*'",
     "lint:fix": "yarn -s tsc:src && yarn -s tsc:node && eslint . --ext .ts --fix && prettier --write '**/*'"
   },
-  "dependencies": {},
+  "dependencies": {
+    "xstate": "^4.12.0"
+  },
   "devDependencies": {
     "@tsconfig/svelte": "^1.0.10",
     "@types/html-webpack-plugin": "*",
