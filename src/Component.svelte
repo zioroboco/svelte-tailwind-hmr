@@ -1,9 +1,11 @@
 <script lang="ts">
-  import { toggleMachine, State } from "./toggleMachine"
+  import { toggleMachine } from "./toggleMachine"
+  import type { State } from "./toggleMachine"
   import { useMachine } from "./useMachine"
+  import Child from "./Child.svelte"
 
   const { state, send } = useMachine(toggleMachine)
-  const handleClick = () => send({ type: "TOGGLE" })
+  const toggle = () => send({ type: "TOGGLE" })
   $: selected = ($state as State).value === "active"
 
   export let message: string
@@ -18,4 +20,5 @@
   }
 </style>
 
-<h1 class:selected on:click={handleClick}>{message}!</h1>
+<h1 class:selected on:click={toggle}>{message}!</h1>
+<Child {selected} />
