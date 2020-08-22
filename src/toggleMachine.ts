@@ -1,10 +1,14 @@
-import { Machine } from "xstate"
+import { Machine, createMachine } from "xstate"
 
-export enum Event {
-  TOGGLE = "TOGGLE",
-}
+export type State =
+  | { value: "active"; context: {} }
+  | { value: "inactive"; context: {} }
 
-export const toggleMachine = Machine({
+export type Event = { type: "TOGGLE" }
+
+export type Context = {}
+
+export const toggleMachine = createMachine<Context, Event, State>({
   id: "toggle",
   initial: "inactive",
   states: {

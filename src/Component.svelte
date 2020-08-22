@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { toggleMachine, Event } from "./toggleMachine"
+  import { toggleMachine, State } from "./toggleMachine"
   import { useMachine } from "./useMachine"
 
   const { state, send } = useMachine(toggleMachine)
-  const handleClick = () => send(Event.TOGGLE)
-  $: selected = $state.value === "active"
+  const handleClick = () => send({ type: "TOGGLE" })
+  $: selected = ($state as State).value === "active"
 
   export let message: string
 </script>
